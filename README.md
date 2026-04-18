@@ -31,7 +31,7 @@ Este projeto:
 
 #  Outros projetos
 
-* Medialuna
+* Medialuna:
   https://thebryan404.github.io/MediaLuna/
 
 # Licença
