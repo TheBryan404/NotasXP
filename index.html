@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Bloco de Notas</title>
+<style>
+    body {
+        background: linear-gradient(#3a6ea5, #7aa6d9);
+        font-family: Tahoma, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .window {
+        width: 700px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        border: 2px solid #1c3f95;
+        background: #fff;
+        animation: pop 0.4s ease;
+    }
+
+    @keyframes pop {
+        from { transform: scale(0.8); opacity: 0; }
+        to { transform: scale(1); opacity: 1; }
+    }
+
+    .title-bar {
+        background: linear-gradient(#245edb, #1c3f95);
+        color: white;
+        padding: 5px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: bold;
+    }
+
+    .buttons span {
+        background: #c0c0c0;
+        border: 1px solid #000;
+        padding: 2px 6px;
+        margin-left: 4px;
+        cursor: pointer;
+    }
+
+    .buttons span:hover {
+        background: #ff5c5c;
+        color: white;
+    }
+
+    .menu {
+        background: #ece9d8;
+        padding: 4px 10px;
+        border-bottom: 1px solid #aaa;
+        font-size: 14px;
+    }
+
+.media {
+    color: inherit;
+    text-decoration: none;
+}
+
+    .menu span {
+        margin-right: 15px;
+        cursor: pointer;
+    }
+
+    textarea {
+        width: 96%;
+        height: 300px;
+        border: 2px inset #ccc;
+        outline: none;
+        padding: 10px;
+        font-family: Consolas, monospace;
+        font-size: 14px;
+        resize: none;
+        background: #ffffff;
+        transition: background 0.3s;
+    }
+
+    textarea:focus {
+        background: #f5faff;
+    }
+
+    .status {
+        background: #ece9d8;
+        padding: 3px 8px;
+        font-size: 12px;
+        border-top: 1px solid #aaa;
+    }
+</style>
+</head>
+<body>
+
+<div class="window">
+    <div class="title-bar">
+        <span>Sem título - Bloco de Notas</span>
+        <div class="buttons">
+            <span style="cursor: wait;">-</span>
+            <span onclick="closeWindow()" style="cursor: help;">X</span>
+        </div>
+    </div>
+
+    <div class="menu">
+        <span onclick="novo()" style="cursor: grab; ">Apagar</span>
+        <span onclick="copiar()" style="cursor: text;">Copiar</span>
+        <span onclick="sobre()" style="cursor: wait">Ajuda</span>
+<a href="https://thebryan404.github.io/MediaLuna/" class="media">
+    Abrir Medialuna by Muzgo (TheBryan404)
+</a>
+</a></span>
+    </div>
+
+    <textarea id="editor" placeholder="Digite seu texto..."></textarea>
+
+    <div class="status" id="status">Linhas: 1</div>
+</div>
+
+<script>
+const editor = document.getElementById('editor');
+const status = document.getElementById('status');
+
+editor.addEventListener('input', () => {
+    const linhas = editor.value ? editor.value.split('\n').length : 1;
+    status.textContent = 'Linhas: ' + linhas;
+});
+
+function novo() {
+    if(confirm('Cê quer Limpar o texto?')) {
+        editor.value = '';
+        status.textContent = 'Linhas: 1';
+    }
+}
+
+function copiar() {
+    editor.select();
+    document.execCommand('copy');
+    alert('Seu texto foi copiado :P');
+}
+
+function sobre() {
+    alert('Só usar o teclado e escrever');
+}
+
+function closeWindow() {
+    alert('Toda escolha carrega o peso de suas consequências.'); 
+ document.querySelector('.window').style.display = 'none';
+}
+
+function media() {
+    alert(`Medialuna carregado.
+Um projeto de Muzgo
+(também conhecido como bryan404)`);
+}
+</script>
+
+</body>
+</html>
