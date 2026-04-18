@@ -1,6 +1,6 @@
 # NotasXP
 
-Um bloco de notas inspirado no visual clássico do Windows XP — simples, direto e levemente questionável.
+Um bloco de notas inspirado no Windows XP
 
 ## Sobre
 
